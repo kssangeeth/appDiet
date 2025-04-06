@@ -1,10 +1,11 @@
+import 'package:app_diett/client/presentation/widgets/signin_button.dart';
+import 'package:flutter/material.dart';
 import 'package:app_diett/client/core/constants/colors.dart';
 import 'package:app_diett/client/core/constants/images.dart';
 import 'package:app_diett/client/core/constants/texts.dart';
 import 'package:app_diett/client/presentation/screens/forgot_password.dart';
 import 'package:app_diett/client/presentation/screens/home_screen.dart';
-import 'package:app_diett/client/presentation/screens/sign_up.dart';
-import 'package:flutter/material.dart';
+import 'package:app_diett/client/presentation/screens/sign_up.dart'; // Your reusable button
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -19,7 +20,7 @@ class LoginScreen extends StatelessWidget {
             fit: BoxFit.cover,
             width: double.infinity,
           ),
-          LoginForm(),
+          const LoginForm(),
         ],
       ),
     );
@@ -41,11 +42,11 @@ class _LoginFormState extends State<LoginForm> {
   void _handleLogin() {
     final email = _emailController.text;
     final password = _passwordController.text;
-    // Dummy login logic
+
     if (email.isNotEmpty && password.isNotEmpty) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomeScreen()),
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -60,7 +61,7 @@ class _LoginFormState extends State<LoginForm> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          margin: EdgeInsets.only(top: 99, left: 23),
+          margin: const EdgeInsets.only(top: 99, left: 23),
           child: CircleAvatar(
             radius: 20,
             backgroundColor: TColors.primary,
@@ -74,10 +75,10 @@ class _LoginFormState extends State<LoginForm> {
             ),
           ),
         ),
-        SizedBox(height: 30),
+        const SizedBox(height: 30),
         Container(
           alignment: Alignment.centerLeft,
-          margin: EdgeInsets.only(left: 23),
+          margin: const EdgeInsets.only(left: 23),
           child: RichText(
             text: TextSpan(
               children: [
@@ -101,33 +102,33 @@ class _LoginFormState extends State<LoginForm> {
             ),
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 23),
+          padding: const EdgeInsets.symmetric(horizontal: 23),
           child: Column(
             children: [
               TextField(
                 controller: _emailController,
                 decoration: InputDecoration(
-                  labelStyle: TextStyle(fontSize: 12),
+                  labelStyle: const TextStyle(fontSize: 12),
                   labelText: TTexts.email,
-                  prefixIcon: Icon(Icons.email_outlined),
-                  border: UnderlineInputBorder(),
+                  prefixIcon: const Icon(Icons.email_outlined),
+                  border: const UnderlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextField(
                 controller: _passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
-                  labelStyle: TextStyle(fontSize: 12),
+                  labelStyle: const TextStyle(fontSize: 12),
                   labelText: TTexts.password,
-                  prefixIcon: Icon(Icons.lock_outlined),
-                  suffixIcon: Icon(Icons.visibility_outlined),
-                  border: UnderlineInputBorder(),
+                  prefixIcon: const Icon(Icons.lock_outlined),
+                  suffixIcon: const Icon(Icons.visibility_outlined),
+                  border: const UnderlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
@@ -135,7 +136,7 @@ class _LoginFormState extends State<LoginForm> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ForgotPassword(),
+                        builder: (context) => const ForgotPassword(),
                       ),
                     );
                   },
@@ -145,135 +146,65 @@ class _LoginFormState extends State<LoginForm> {
                   ),
                 ),
               ),
-              SizedBox(
-                width: double.infinity,
-                height: 45,
-                child: ElevatedButton(
-                  onPressed: _handleLogin,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: TColors.primary,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: Text(
-                    TTexts.signin,
-                    style: TextStyle(
-                      color: TColors.primaryBackground,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+              const SizedBox(height: 10),
+              SocialSignInButton(
+                text: TTexts.signin,
+                onPressed: _handleLogin,
+                backgroundColor: TColors.primary,
+                textColor: TColors.primaryBackground,
               ),
-              SizedBox(height: 28),
+              const SizedBox(height: 28),
               Row(
                 children: [
-                  Expanded(
-                    child: Divider(
-                      thickness: 1,
-                      color: TColors.black,
-                    ),
+                  const Expanded(
+                    child: Divider(thickness: 1, color: TColors.black),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Text(
                       TTexts.or,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: TColors.black,
                         fontSize: 16,
                       ),
                     ),
                   ),
-                  Expanded(
-                    child: Divider(
-                      thickness: 1,
-                      color: TColors.black,
-                    ),
+                  const Expanded(
+                    child: Divider(thickness: 1, color: TColors.black),
                   ),
                 ],
               ),
-              SizedBox(height: 50),
-              Column(
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      elevation: 10,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            width: 16,
-                            height: 16,
-                            child: Image.asset(
-                              TImages.googlecon,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          SizedBox(width: 10),
-                          Text(
-                            TTexts.loginwithgoogle,
-                            style: TextStyle(
-                              color: TColors.black,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      elevation: 10,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            width: 16,
-                            height: 16,
-                            child: Image.asset(
-                              TImages.facebookcon,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          SizedBox(width: 10),
-                          Text(
-                            TTexts.loginwithgoogle,
-                            style: TextStyle(
-                              color: TColors.black,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
+              const SizedBox(height: 30),
+              SocialSignInButton(
+                text: TTexts.loginwithgoogle,
+                icon: Image.asset(
+                  TImages.googlecon,
+                  width: 18,
+                  height: 18,
+                ),
+                onPressed: () {
+                  // Google Sign In Logic
+                },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
+              SocialSignInButton(
+                text: TTexts.loginwithfacebook,
+                icon: Image.asset(
+                  TImages.facebookcon,
+                  width: 18,
+                  height: 18,
+                ),
+                onPressed: () {
+                  // Facebook Sign In Logic
+                },
+              ),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     TTexts.newmember,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 14,
                     ),
@@ -283,7 +214,7 @@ class _LoginFormState extends State<LoginForm> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SignUp(),
+                          builder: (context) => const SignUp(),
                         ),
                       );
                     },
