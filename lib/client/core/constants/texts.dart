@@ -20,4 +20,12 @@ class TTexts {
   static const String agree = "By signing up you agree to our";
   static const String terms = "Terms of Service";
   static const String alreadyhave = "Already have an account?";
+  static const String entertheverificationcode =
+      "Enter the verification code sent to";
+  static const String verify = "Verify";
+  static const String sendcodeprompt =
+      "Enter your registered email address, and we will send a recovery code to your email.";
+  static const String enteryouremail = "Enter your email address";
+  static const String entervalidemail = "Enter a valid email address";
+  static const String next = "Next";
 }

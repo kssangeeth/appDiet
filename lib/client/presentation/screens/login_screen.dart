@@ -1,4 +1,5 @@
 import 'package:app_diett/client/presentation/widgets/custom_text_field.dart';
+import 'package:app_diett/client/presentation/widgets/otp_textfield.dart';
 import 'package:app_diett/client/presentation/widgets/signin_button.dart';
 import 'package:flutter/material.dart';
 import 'package:app_diett/client/core/constants/colors.dart';
@@ -63,20 +64,10 @@ class _LoginFormState extends State<LoginForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          margin: const EdgeInsets.only(top: 99, left: 23),
-          child: CircleAvatar(
-            radius: 20,
-            backgroundColor: TColors.primary,
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.arrow_back_ios_new,
-                size: 20,
-                color: TColors.primaryBackground,
-              ),
-            ),
-          ),
+        const SizedBox(height: 99),
+        Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: const BackButtonCircle(),
         ),
         const SizedBox(height: 30),
         Container(
