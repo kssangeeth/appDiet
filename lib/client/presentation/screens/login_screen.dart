@@ -1,3 +1,4 @@
+import 'package:app_diett/client/presentation/widgets/custom_text_field.dart';
 import 'package:app_diett/client/presentation/widgets/signin_button.dart';
 import 'package:flutter/material.dart';
 import 'package:app_diett/client/core/constants/colors.dart';
@@ -13,15 +14,17 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Image.asset(
-            TImages.ellipse,
-            fit: BoxFit.cover,
-            width: double.infinity,
-          ),
-          const LoginForm(),
-        ],
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            Image.asset(
+              TImages.ellipse,
+              fit: BoxFit.cover,
+              width: double.infinity,
+            ),
+            const LoginForm(),
+          ],
+        ),
       ),
     );
   }
@@ -107,26 +110,21 @@ class _LoginFormState extends State<LoginForm> {
           padding: const EdgeInsets.symmetric(horizontal: 23),
           child: Column(
             children: [
-              TextField(
+              CustomTextField(
+                label: TTexts.email,
+                prefixIcon: Icons.email_outlined,
                 controller: _emailController,
-                decoration: InputDecoration(
-                  labelStyle: const TextStyle(fontSize: 12),
-                  labelText: TTexts.email,
-                  prefixIcon: const Icon(Icons.email_outlined),
-                  border: const UnderlineInputBorder(),
-                ),
               ),
               const SizedBox(height: 20),
-              TextField(
+              CustomTextField(
+                label: TTexts.password,
+                prefixIcon: Icons.lock_outlined,
                 controller: _passwordController,
                 obscureText: true,
-                decoration: InputDecoration(
-                  labelStyle: const TextStyle(fontSize: 12),
-                  labelText: TTexts.password,
-                  prefixIcon: const Icon(Icons.lock_outlined),
-                  suffixIcon: const Icon(Icons.visibility_outlined),
-                  border: const UnderlineInputBorder(),
-                ),
+                suffixIcon: Icons.visibility_outlined,
+                onSuffixTap: () {
+                  // Add toggle password visibility logic here later if needed
+                },
               ),
               const SizedBox(height: 10),
               Align(
