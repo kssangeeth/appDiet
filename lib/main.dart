@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        fontFamily: TTexts.Poppins,
+        fontFamily: TTexts.poppins,
         scaffoldBackgroundColor: TColors.primaryBackground,
         useMaterial3: true,
       ),
