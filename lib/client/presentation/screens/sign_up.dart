@@ -56,7 +56,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'name': name,
-          'mobile': mobile,
+          'mobile_number': mobile,
           'email': email,
           'password': password,
         }),
