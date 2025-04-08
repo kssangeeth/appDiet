@@ -75,10 +75,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return TTexts.enteryouremail;
+                        return TTexts.enteryourmobilenumber;
                       }
                       if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                        return TTexts.entervalidemail;
+                        return TTexts.entervalidemobilenumber;
                       }
                       return null;
                     },

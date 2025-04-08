@@ -24,8 +24,8 @@ class TTexts {
       "Enter the verification code sent to";
   static const String verify = "Verify";
   static const String sendcodeprompt =
-      "Enter your registered email address, and we will send a recovery code to your email.";
-  static const String enteryouremail = "Enter your email address";
-  static const String entervalidemail = "Enter a valid email address";
+      "Enter your registered mobile number, and we will send a recovery code to your mobile number.";
+  static const String enteryourmobilenumber = "Enter your mobile number";
+  static const String entervalidemobilenumber = "Enter a valid mobile number";
   static const String next = "Next";
 }
